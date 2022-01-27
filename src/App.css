@@ -18,8 +18,11 @@
   }
 }
 
+button  {
+  margin:1rem;
+}
+
 input {
-  padding:.5rem;
   margin:1rem;
 }
 

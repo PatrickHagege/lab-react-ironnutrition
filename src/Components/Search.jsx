@@ -3,7 +3,7 @@ import React from "react";
 const Search = ({ searchedString, callbackSearch }) => {
     return (
         <>
-            <label htmlFor="search">Search a food in the list</label>
+            {/* <label htmlFor="search">Search a food in the list</label> */}
             <input
                 type="text"
                 name="search"
