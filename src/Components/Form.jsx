@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = ({ addFoods }) => {
+const Form = ({ hidden, addFoods }) => {
 	const [name, setName] = useState("");
 	const [calories, setCalories] = useState("");
     const [image, setImage] = useState("");

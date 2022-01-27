@@ -10,9 +10,11 @@ import TodaysFood from './Components/TodaysFood';
 function App() {
   const [foods, setFoods] = useState(initialFoods);
   const [searchedString, setSearchedString] = useState("");
+  const [hidden, setHidden] = useState(true);
 
   const addFoods = (food) => {
     setFoods([...foods, food]);
+    setHidden(!hidden);
   };
 
   let searchedFood = null;
@@ -26,20 +28,25 @@ function App() {
 
   return (
     <div className="App">
-      <Form addFoods={addFoods} />
+      <button
+      hidden={!hidden}
+      onClick={(()=> setHidden(!hidden))}
+      >
+        Add a new food
+      </button>
+      {!hidden && <Form addFoods={addFoods} />}
       <Search
         searchedString={searchedString}
         callbackSearch={setSearchedString}
       />
       <div className="columns">
-      <FoodBoxList
-        className="column FoodBoxList"
-        foods={foods}
-        foods={searchedFood}
-      />
-      <TodaysFood 
-        className="column TodaysFood"
-      />
+        <FoodBoxList
+          className="column FoodBoxList"
+          foods={searchedFood}
+        />
+        <TodaysFood
+          className="column TodaysFood"
+        />
       </div>
     </div>
   );
