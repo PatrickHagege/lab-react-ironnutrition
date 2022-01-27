@@ -4,6 +4,7 @@ import initialFoods from './foods.json';
 import FoodBoxList from './Components/FoodBoxList';
 import Form from './Components/Form';
 import Search from "./Components/Search";
+import TodaysFood from './Components/TodaysFood';
 
 
 function App() {
@@ -30,10 +31,16 @@ function App() {
         searchedString={searchedString}
         callbackSearch={setSearchedString}
       />
+      <div className="columns">
       <FoodBoxList
+        className="column FoodBoxList"
         foods={foods}
         foods={searchedFood}
       />
+      <TodaysFood 
+        className="column TodaysFood"
+      />
+      </div>
     </div>
   );
 }

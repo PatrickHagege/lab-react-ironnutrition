@@ -17,3 +17,13 @@
     transform: rotate(360deg);
   }
 }
+
+input {
+  padding:.5rem;
+  margin:1rem;
+}
+
+h2  {
+  font-weight:bold;
+  font-size:1.25rem;
+}
