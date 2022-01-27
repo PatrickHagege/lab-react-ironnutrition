@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import initialFoods from './foods.json';
+import FoodBoxList from './Components/FoodBoxList';
+import Form from './Components/Form';
+import Search from "./Components/Search";
+
 
 function App() {
+  const [foods, setFoods] = useState(initialFoods);
+  const [searchedString, setSearchedString] = useState("");
+
+  const addFoods = (food) => {
+    setFoods([...foods, food]);
+  };
+
+  let searchedFood = null;
+  if (searchedString !== "") {
+    searchedFood = foods.filter((food) => {
+      return food.name.toLowerCase().includes(searchedString.toLowerCase());
+    });
+  } else {
+    searchedFood = foods;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form addFoods={addFoods} />
+      <Search
+        searchedString={searchedString}
+        callbackSearch={setSearchedString}
+      />
+      <FoodBoxList
+        foods={foods}
+        foods={searchedFood}
+      />
     </div>
   );
 }

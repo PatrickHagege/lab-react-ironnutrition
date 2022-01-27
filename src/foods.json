@@ -3,7 +3,7 @@
     "name": "Pizza",
     "calories": 400,
     "image": "https://i.imgur.com/eTmWoAN.png",
-    "quantity": 0
+    "quantity": 10
   },
   {
     "name": "Salad",
@@ -69,7 +69,7 @@
     "name": "Chocolate Cake",
     "calories": 490,
     "image": "https://i.imgur.com/yrgzA9x.jpg",
-    "quantity": 0
+    "quantity": 10
   },
   {
     "name": "Wheat Bread",
