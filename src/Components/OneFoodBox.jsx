@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-const OneFoodBox = (props) => {
-  const { name, calories, image, quantity /*deleteContact*/ } = props;
-console.log("image", image)
+const OneFoodBox = ({ name, calories, image, quantity, addTodaysFood }) => {
+  const [currentQTY, setCurrentQTY] = useState(0);
+  
   return (
     <div className="box">
       <article className="media">
         <div className="media-left">
           <figure className="image is-64x64">
-            <img src={image} alt={name}/>
+            <img src={image} alt={name} />
           </figure>
         </div>
         <div className="media-content">
@@ -22,10 +22,10 @@ console.log("image", image)
         <div className="media-right">
           <div className="field has-addons">
             <div className="control">
-              <input className="input" type="number" value={quantity} />
+              <input className="input" type="number" value={currentQTY} onChange={(e) => setCurrentQTY(Number(e.target.value))} />
             </div>
             <div className="control">
-              <button className="button is-info">
+              <button className="button is-info" onClick={() => addTodaysFood(name, currentQTY, calories)}>
                 +
               </button>
             </div>
@@ -33,14 +33,8 @@ console.log("image", image)
         </div>
       </article>
     </div>
-
-    // <p>
-    // 	<span onClick={() => deleteContact(email)} className="name">
-    // 		{name}
-    // 	</span>
-    // 	<span className="email">{email}</span>
-    // </p>
   );
 };
 
 export default OneFoodBox;
+

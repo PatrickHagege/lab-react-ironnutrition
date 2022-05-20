@@ -1,8 +1,7 @@
 import React from "react";
 import OneFoodBox from './OneFoodBox';
 
-const FoodBoxList = (props) => {
-	const { foods } = props;
+const FoodBoxList = ({ foods, addTodaysFood }) => {
 	return (
 		<>
 			{foods.length > 0 ? (
@@ -12,11 +11,11 @@ const FoodBoxList = (props) => {
 						return (
 							<OneFoodBox
 								key={i}
-                                name={food.name}
+								name={food.name}
 								calories={food.calories}
 								image={food.image}
-                                quantity={food.quantity}
-								// deleteContact={deleteContact}
+								quantity={food.quantity}
+								addTodaysFood={addTodaysFood}
 							/>
 						);
 					})}
