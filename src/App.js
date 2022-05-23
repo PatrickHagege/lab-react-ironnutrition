@@ -29,22 +29,13 @@ function App() {
       const element = clone[i];
       let updatedQTY = 0;
       if (element.name === name && (clone.some(e => e.name === name)))  {
-        console.log('element.name === name && (clone.some(e => e.name === name))')
-        element.quantity += updatedQTY;
-        const newElement = {name, quantity, calories};
-        clone.splice(i, 1, newElement);
-      } else if (element.name === name) {
-        console.log('element.name === name')
         element.quantity += updatedQTY;
         const newElement = {name, quantity, calories};
         clone.splice(i, 1, newElement);
       } else if (element.name !== name && (!clone.some(e => e.name === name))){
         clone.push({ name, quantity, calories })
-        // setTodaysFood(clone)
       }
     }
-      console.log('apres le "for" clone vaut :', clone)
-      console.log('apres le "for" quantity vaut :', quantity)
       setTodaysFood(clone)
   };
   
@@ -68,10 +59,11 @@ function App() {
   return (
     <div className="App">
       <button
+        className='toggleSearchBtn'
         hidden={!hidden}
         onClick={(() => setHidden(!hidden))}
       >
-        Add a new food
+        ADD A NEW FOOD
       </button>
       {!hidden && <Form addFoods={addFoods} />}
       <Search

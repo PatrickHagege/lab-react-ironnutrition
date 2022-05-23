@@ -14,7 +14,7 @@ function TodaysFood({ todaysFoodList, deleteFood }) {
         return (
         <li className="food" key={el.name}>
           ◦ {el.quantity} {el.name}{el.quantity > 1 && ('s')} =  {calculateElementCalories(el)}
-          <button class="delete is-small is-danger" onClick={() => deleteFood(el.name)}></button>
+          <button className="delete is-small is-danger" onClick={() => deleteFood(el.name)}></button>
         </li>
         )
       })}

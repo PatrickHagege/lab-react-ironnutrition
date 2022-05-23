@@ -7,7 +7,6 @@ const FoodBoxList = ({ foods, addTodaysFood }) => {
 			{foods.length > 0 ? (
 				<div className="foodbox-list">
 					{foods.map((food, i) => {
-						//console.log(food);
 						return (
 							<OneFoodBox
 								key={i}
